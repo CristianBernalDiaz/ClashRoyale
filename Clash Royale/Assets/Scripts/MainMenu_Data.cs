@@ -33,10 +33,12 @@ public class MainMenu_Data : MonoBehaviour
         User.text = data.User;
         Clan.text = data.Clan;
     }
-
-    
     void Update()
     {
-        
+        Level.text = data.Level.ToString();
+        Gold.text = data.Gold.ToString();
+        Esmerald.text = data.Esmerald.ToString();
+        User.text = data.User;
+        Clan.text = data.Clan;
     }
 }
