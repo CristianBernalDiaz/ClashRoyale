@@ -16,14 +16,14 @@ public class LevelManager : MonoBehaviour
     {
         string path = Application.dataPath + "/Resources/" + _fileName + ".json";
         string data = File.ReadAllText(path);
-        var resource = JSON.Parse(path);
+        var resource = JSON.Parse(data);
 
         for (int i = 0; i < resource.Count; i++)
         {
             CR_Character character = new CR_Character();
             character.name = resource[i]["name"].Value;
-            character.name = resource[i]["rarity"].Value;
-            character.name = resource[i]["id"].Value;
+            character.rarity = resource[i]["rarity"].Value;
+            character.id = int.Parse(resource[i]["id"].Value);
             characters.Add(character);
         }
     }
@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     {
         characters = new List<CR_Character>();
         LoadCharacters("characters");
-        dummy.transform.GetChild(0).GetComponent<TMP_Text>().text = characters[0].name;
+        //dummy.transform.GetChild(0).GetComponent<TMP_Text>().text = characters[0].name;
         //CharData = FileSystem.instance.LoadFromJSON<CR_Character>("knight");
         //characters.Add(CharData);
     }
