@@ -1,16 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Canvas_Controller : MonoBehaviour
 {
-    float posFinal;
-    bool oppenMenu;
-    public float time = 0.5f;
+    public Canvas canvas1;
+    public Canvas canvas2;
+    public Button cambiarCanvasButton;
 
-    private void Start()
+    void Start()
     {
-        posFinal = Screen.width / 2;
+        canvas1.enabled = true;
+        canvas2.enabled = false;
+
+        cambiarCanvasButton.onClick.AddListener(CambiarCanvas);
+    }
+
+    void CambiarCanvas()
+    {
+        canvas1.enabled = false;
+        canvas2.enabled = true;
+    }
+   
+    void Update()
+    {
         
     }
 }
